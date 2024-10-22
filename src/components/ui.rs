@@ -37,7 +37,7 @@ pub fn setup_ui(mut commands: Commands, asset_server: Res<AssetServer>) {
             ..Default::default()
         },
         // transparent container
-        background_color: Color::rgba(0., 0., 0., 0.).into(),
+        background_color: Color::srgb(0., 0., 0.).into(),
         // Debug - comment out invisibility on initial creation of the box to see it
         visibility: Visibility::Hidden,
         ..Default::default()

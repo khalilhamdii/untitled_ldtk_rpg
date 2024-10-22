@@ -10,7 +10,7 @@ use crate::*;
 
 pub fn move_player(
     keyboard_input: Res<ButtonInput<KeyCode>>,
-    mut query: Query<(&mut Velocity, &mut PlayerAnimationState), With<Player>>,
+    mut query: Query<(&mut Velocity, &mut AnimationState), With<Player>>,
 ) {
     if let Ok((mut velocity, mut state)) = query.get_single_mut() {
         const SPEED: f32 = 150.;
@@ -22,23 +22,23 @@ pub fn move_player(
 
         if keyboard_input.pressed(KeyCode::ArrowUp) || keyboard_input.pressed(KeyCode::KeyW) {
             velocity.linvel += Vect::new(0., SPEED);
-            *state = PlayerAnimationState::MovingUp;
+            *state = AnimationState::MovingUp;
         }
         if keyboard_input.pressed(KeyCode::ArrowLeft) || keyboard_input.pressed(KeyCode::KeyA) {
             velocity.linvel += Vect::new(-SPEED, 0.);
-            *state = PlayerAnimationState::MovingLeft;
+            *state = AnimationState::MovingLeft;
         }
         if keyboard_input.pressed(KeyCode::ArrowDown) || keyboard_input.pressed(KeyCode::KeyS) {
             velocity.linvel += Vect::new(0., -SPEED);
-            *state = PlayerAnimationState::MovingDown;
+            *state = AnimationState::MovingDown;
         }
         if keyboard_input.pressed(KeyCode::ArrowRight) || keyboard_input.pressed(KeyCode::KeyD) {
             velocity.linvel += Vect::new(SPEED, 0.);
-            *state = PlayerAnimationState::MovingRight;
+            *state = AnimationState::MovingRight;
         }
 
         if velocity.linvel == default {
-            *state = PlayerAnimationState::Idle;
+            *state = AnimationState::Idle;
         }
     }
 }

@@ -10,12 +10,14 @@ impl Player {
         if let Ok(player) = query_player.get_single() {
             commands
                 .entity(player)
+                .insert(SpriteMovementAnimations {
+                    walk_down: vec![0, 4, 8, 12],
+                    walk_up: vec![2, 6, 10, 14],
+                    walk_left: vec![1, 5, 9, 13],
+                    walk_right: vec![3, 7, 11, 15],
+                })
                 .insert(RigidBody::Dynamic)
                 .insert(LockedAxes::ROTATION_LOCKED)
-                // .insert(SpriteSheetAnimation::from(PlayerAnimationState::Idle))
-                // For now does nothing, but to be used if it would become useful to track the facing direction of the player.
-                // In case of a better sprite sheet or interaction with entities.
-                // .insert(super::Direction::Down)
                 // Position the collider relative to the rigid-body.
                 .with_children(|parent| {
                     parent.spawn((
@@ -33,36 +35,13 @@ pub struct PlayerBundle {
     player: Player,
     #[sprite_sheet_bundle]
     sprite_sheet_bundle: LdtkSpriteSheetBundle,
-    state: PlayerAnimationState,
+    state: AnimationState,
     sprite_sheet_animation: SpriteSheetAnimation,
+    sprite_movement_animations: SpriteMovementAnimations,
     velocity: Velocity,
     #[worldly]
     worldly: Worldly,
     teleporting_to_entity_iid: EntityIid,
     #[from_entity_instance]
     z_from_y: DeriveZFromY,
-}
-
-#[derive(Component, Reflect)]
-pub enum PlayerAnimationState {
-    Idle,
-    MovingUp,
-    MovingDown,
-    MovingLeft,
-    MovingRight,
-}
-
-// Implementing Default for Direction
-impl Default for PlayerAnimationState {
-    fn default() -> Self {
-        PlayerAnimationState::Idle
-    }
-}
-
-#[derive(Resource, Default, Reflect)]
-pub struct PlayerAnimations {
-    pub walk_down: Vec<usize>,
-    pub walk_up: Vec<usize>,
-    pub walk_left: Vec<usize>,
-    pub walk_right: Vec<usize>,
 }
