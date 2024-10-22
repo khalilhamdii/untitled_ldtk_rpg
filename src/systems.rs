@@ -10,17 +10,9 @@ use crate::*;
 
 pub fn move_player(
     keyboard_input: Res<ButtonInput<KeyCode>>,
-    mut query: Query<
-        (
-            &mut Velocity,
-            &mut Sprite,
-            &mut PlayerAnimationState,
-            &mut SpriteSheetAnimation,
-        ),
-        With<Player>,
-    >,
+    mut query: Query<(&mut Velocity, &mut PlayerAnimationState), With<Player>>,
 ) {
-    if let Ok((mut velocity, mut sprite, mut state, mut animation)) = query.get_single_mut() {
+    if let Ok((mut velocity, mut state)) = query.get_single_mut() {
         const SPEED: f32 = 150.;
 
         let default = Vect::default();
@@ -30,29 +22,23 @@ pub fn move_player(
 
         if keyboard_input.pressed(KeyCode::ArrowUp) || keyboard_input.pressed(KeyCode::KeyW) {
             velocity.linvel += Vect::new(0., SPEED);
+            *state = PlayerAnimationState::MovingUp;
         }
         if keyboard_input.pressed(KeyCode::ArrowLeft) || keyboard_input.pressed(KeyCode::KeyA) {
             velocity.linvel += Vect::new(-SPEED, 0.);
-            sprite.flip_x = true;
+            *state = PlayerAnimationState::MovingLeft;
         }
         if keyboard_input.pressed(KeyCode::ArrowDown) || keyboard_input.pressed(KeyCode::KeyS) {
             velocity.linvel += Vect::new(0., -SPEED);
+            *state = PlayerAnimationState::MovingDown;
         }
         if keyboard_input.pressed(KeyCode::ArrowRight) || keyboard_input.pressed(KeyCode::KeyD) {
             velocity.linvel += Vect::new(SPEED, 0.);
-            sprite.flip_x = false;
+            *state = PlayerAnimationState::MovingRight;
         }
 
-        if velocity.linvel != default {
-            if *state != PlayerAnimationState::Running {
-                // start running
-                *state = PlayerAnimationState::Running;
-                *animation = PlayerAnimationState::Running.into();
-            }
-        } else if *state != PlayerAnimationState::Idle {
-            // stop running
+        if velocity.linvel == default {
             *state = PlayerAnimationState::Idle;
-            *animation = PlayerAnimationState::Idle.into();
         }
     }
 }

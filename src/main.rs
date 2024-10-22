@@ -26,6 +26,12 @@ fn main() {
         // ↓ LDtk
         .add_plugins(LdtkPlugin)
         .insert_resource(LevelSelection::index(0))
+        .insert_resource(PlayerAnimations {
+            walk_down: vec![0, 4, 8, 12],
+            walk_up: vec![2, 6, 10, 14],
+            walk_left: vec![1, 5, 9, 13],
+            walk_right: vec![3, 7, 11, 15],
+        })
         // ↓ Setup
         .add_systems(Startup, (setup, setup_ui))
         .add_plugins(SpawnPlugin)

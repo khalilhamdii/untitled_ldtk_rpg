@@ -12,10 +12,10 @@ impl Player {
                 .entity(player)
                 .insert(RigidBody::Dynamic)
                 .insert(LockedAxes::ROTATION_LOCKED)
-                .insert(SpriteSheetAnimation::from(PlayerAnimationState::Idle))
+                // .insert(SpriteSheetAnimation::from(PlayerAnimationState::Idle))
                 // For now does nothing, but to be used if it would become useful to track the facing direction of the player.
                 // In case of a better sprite sheet or interaction with entities.
-                .insert(super::Direction::Down)
+                // .insert(super::Direction::Down)
                 // Position the collider relative to the rigid-body.
                 .with_children(|parent| {
                     parent.spawn((
@@ -43,22 +43,26 @@ pub struct PlayerBundle {
     z_from_y: DeriveZFromY,
 }
 
-#[derive(Debug, Eq, PartialEq, Component, Default)]
+#[derive(Component, Reflect)]
 pub enum PlayerAnimationState {
-    #[default]
     Idle,
-    Running,
+    MovingUp,
+    MovingDown,
+    MovingLeft,
+    MovingRight,
 }
-impl From<PlayerAnimationState> for SpriteSheetAnimation {
-    fn from(state: PlayerAnimationState) -> Self {
-        let indices = match state {
-            PlayerAnimationState::Idle => 0..1,
-            PlayerAnimationState::Running => 1..7,
-        };
-        let timer = Timer::from_seconds(0.08, TimerMode::Repeating);
-        SpriteSheetAnimation {
-            state_range: Some(indices),
-            timer,
-        }
+
+// Implementing Default for Direction
+impl Default for PlayerAnimationState {
+    fn default() -> Self {
+        PlayerAnimationState::Idle
     }
+}
+
+#[derive(Resource, Default, Reflect)]
+pub struct PlayerAnimations {
+    pub walk_down: Vec<usize>,
+    pub walk_up: Vec<usize>,
+    pub walk_left: Vec<usize>,
+    pub walk_right: Vec<usize>,
 }

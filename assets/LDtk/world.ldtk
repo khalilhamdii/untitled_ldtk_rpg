@@ -11,7 +11,7 @@
 	"iid": "5e799010-7820-11ed-bb06-5da593bf5345",
 	"jsonVersion": "1.5.3",
 	"appBuildId": 473703,
-	"nextUid": 227,
+	"nextUid": 229,
 	"identifierStyle": "Capitalize",
 	"toc": [],
 	"worldLayout": "Free",
@@ -3811,7 +3811,7 @@
 		}
 	], "entities": [
 		{
-			"identifier": "Player",
+			"identifier": "Player_backup",
 			"uid": 114,
 			"tags": [],
 			"exportToToc": false,
@@ -3843,6 +3843,41 @@
 			"limitBehavior": "MoveLastOne",
 			"pivotX": 0.5,
 			"pivotY": 1,
+			"fieldDefs": []
+		},
+		{
+			"identifier": "Player",
+			"uid": 228,
+			"tags": [],
+			"exportToToc": false,
+			"allowOutOfBounds": false,
+			"doc": null,
+			"width": 24,
+			"height": 24,
+			"resizableX": false,
+			"resizableY": false,
+			"minWidth": null,
+			"maxWidth": null,
+			"minHeight": null,
+			"maxHeight": null,
+			"keepAspectRatio": false,
+			"tileOpacity": 1,
+			"fillOpacity": 0.08,
+			"lineOpacity": 0,
+			"hollow": false,
+			"color": "#D77643",
+			"renderMode": "Tile",
+			"showName": true,
+			"tilesetId": 227,
+			"tileRenderMode": "FitInside",
+			"tileRect": { "tilesetUid": 227, "x": 0, "y": 0, "w": 48, "h": 48 },
+			"uiTileRect": null,
+			"nineSliceBorders": [],
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 0.5,
 			"fieldDefs": []
 		},
 		{
@@ -4509,6 +4544,25 @@
 				"opaqueTiles": "11111111110111111111101111111111011111111110111111111111111111111111111111111111111111110000111110010001111100100000000001111000000011111111110111111111101111111111011111111110111111111111111111111111111111111111111111110000111110010001111100100000000001111000000011111111110111111111101111111111011111111110111111111111111111111111111111111111111111110000111110000001111100",
 				"averageColors": "ffcaffcaffcaffcaffcaffcaffcaffcaffcaffca0000fdb8fdb8fdb8fdb8fda8fda8fda8fda8fca7fca70000ffcaffdbffcaffcaffcaffdbffdbffcaffcaffca0000fdb8fec9fdb8fda7fda8fdb8fdb8fda8fdb8fda70000ffcaffcaffcaffcaffcaffdaffdaffcaffcaffcaffcafdb8fdb8fdb8fdb8fda8fdb8fdb8fda8fdb8fca7fca7ffcaffcaffcaffcaffcaffcaffcaffcaffcaffcaffcafdb8fda7fdb8fdb8fda8fda8fda8fda8fca7fca7fca70000000000000000ffcaffcaffcaffcaffca00000000fec9000000000000fca7fdb8fdb8fca7fca700000000ffec0000000000000000000000000000000000000000fc96fedbfecafec90000000000000000000000000000ffb7ffb7ffb7ffa6ffa6ffb7ffb7ffa6ffa6ffb70000f787f787f787f787f786f787f787f786f786f7860000ffb7ffb7ffb7ffb7ffb7ffb7ffb7ffb7ffb7ffb70000f787f897f787f786f787f887f887f787f787f7860000ffb7ffb7ffb7ffb7ffb7ffb7ffb7ffb7ffb7ffb7ffb7f787f787f787f787f787f887f887f787f787f787f787ffa6ffa7ffb6ffb6ffa7ffb7ffb7ffb7ffa7ffb7ffb7f787f786f787f787f786f787f787f787f786f787f7870000000000000000ffa7ffb7ffb7ffa7ffa700000000f897000000000000f786f787f787f786f78600000000ffdb0000000000000000000000000000000000000000f676fabbf9a8f8970000000000000000000000000000fdb7fdb7fda7fda7fda7fdb7fdb7fda7fdb7fdb70000f554f555f544f544f544f554f555f544f544f6550000fdb7fdb7fdb7fda7fdb7fdb7fdb7fdb7fdb7fdb70000f555f655f554f544f554f555f655f554f655f5550000fda7fdb7fda7fda7fdb7fdb7fdb7fdb7fdb7fdb7fdb7f544f555f544f544f555f655f655f554f655f555f555fda7fda7fda7fca7fda7fdb7fdb7fda7fdb7fdb7fdb7f544f544f544f544f544f554f544f544f544f555f5550000000000000000fdb7fdb7fdb7fdb7fdb7000000000000000000000000f544f655f555f554f55500000000"
 			}
+		},
+		{
+			"__cWid": 4,
+			"__cHei": 4,
+			"identifier": "Player_spritesheet",
+			"uid": 227,
+			"relPath": "player_spritesheet.png",
+			"embedAtlas": null,
+			"pxWid": 192,
+			"pxHei": 192,
+			"tileGridSize": 48,
+			"spacing": 0,
+			"padding": 0,
+			"tags": [],
+			"tagsSourceEnumUid": null,
+			"enumTags": [],
+			"customData": [],
+			"savedSelections": [],
+			"cachedPixelData": { "opaqueTiles": "0000000000000000", "averageColors": "5a864a8559744a855a864a8559744a855a864a8559744a855a864a7559744a75" }
 		}
 	], "enums": [{ "identifier": "Direction", "uid": 125, "values": [
 		{ "id": "Up", "tileRect": { "tilesetUid": 123, "x": 0, "y": 64, "w": 16, "h": 16 }, "color": 9016725 },
@@ -4674,22 +4728,6 @@
 							}] }],
 							"__worldX": 544,
 							"__worldY": 288
-						},
-						{
-							"__identifier": "Player",
-							"__grid": [18,9],
-							"__pivot": [0.5,1],
-							"__tags": [],
-							"__tile": { "tilesetUid": 115, "x": 0, "y": 0, "w": 24, "h": 24 },
-							"__smartColor": "#D77643",
-							"iid": "8d7e6e00-7820-11ed-bb06-09711f8ddeab",
-							"width": 24,
-							"height": 24,
-							"defUid": 114,
-							"px": [296,160],
-							"fieldInstances": [],
-							"__worldX": 296,
-							"__worldY": 160
 						},
 						{
 							"__identifier": "Frog",
@@ -4994,6 +5032,22 @@
 							"fieldInstances": [],
 							"__worldX": 232,
 							"__worldY": 320
+						},
+						{
+							"__identifier": "Player",
+							"__grid": [18,9],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 227, "x": 0, "y": 0, "w": 48, "h": 48 },
+							"__smartColor": "#D77643",
+							"iid": "63084f30-73f0-11ef-b9c1-ebd9aa66a49a",
+							"width": 24,
+							"height": 24,
+							"defUid": 228,
+							"px": [296,152],
+							"fieldInstances": [],
+							"__worldX": 296,
+							"__worldY": 152
 						}
 					]
 				},
