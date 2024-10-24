@@ -50,6 +50,7 @@ impl Plugin for SpawnPlugin {
             .register_ldtk_entity::<SignBundle>("Sign")
             .register_ldtk_entity::<DoorBundle>("Door")
             .register_ldtk_entity::<FrogBundle>("Frog")
+            .register_ldtk_entity::<MobBundle>("Ghost")
             .register_ldtk_entity::<HouseBundle>("House")
             .register_ldtk_entity::<ToriiGateBundle>("ToriiGate")
             .register_ldtk_entity::<TreeBigBundle>("TreeBig")
@@ -67,7 +68,8 @@ impl Plugin for SpawnPlugin {
             .add_systems(Update, TreeBig::spawn)
             .add_systems(Update, TreeSmall::spawn)
             .add_systems(Update, Wall::spawn)
-            .add_systems(Update, DeriveZFromY::spawn);
+            .add_systems(Update, DeriveZFromY::spawn)
+            .add_systems(Update, patrol);
     }
 }
 
@@ -84,7 +86,7 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
 
     // Ldtk world
     commands.spawn(LdtkWorldBundle {
-        ldtk_handle: asset_server.load("LDtk/world.ldtk"),
+        ldtk_handle: asset_server.load("LDtk/new_world.ldtk"),
         ..Default::default()
     });
 }

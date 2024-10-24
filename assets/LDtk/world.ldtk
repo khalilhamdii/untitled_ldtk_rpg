@@ -7275,15 +7275,15 @@
 					"entityInstances": []
 				}
 			],
-			"__neighbours": [{ "levelIid": "c3f14590-7820-11ed-81cb-e99d734379ea", "dir": ">" }]
+			"__neighbours": [{ "levelIid": "c3f14590-7820-11ed-81cb-e99d734379ea", "dir": "e" }]
 		},
 		{
 			"identifier": "Level_1",
 			"iid": "c3f14590-7820-11ed-81cb-e99d734379ea",
 			"uid": 128,
-			"worldX": 96,
-			"worldY": 48,
-			"worldDepth": 1,
+			"worldX": 624,
+			"worldY": 0,
+			"worldDepth": 0,
 			"pxWid": 176,
 			"pxHei": 128,
 			"__bgColor": "#696A79",
@@ -7349,8 +7349,8 @@
 									"params": ["61358440-7820-11ed-81cb-d7d4c2fe600e"]
 								}] }
 							],
-							"__worldX": 152,
-							"__worldY": 168
+							"__worldX": 680,
+							"__worldY": 120
 						}
 					]
 				},
@@ -7707,7 +7707,7 @@
 					"entityInstances": []
 				}
 			],
-			"__neighbours": [{ "levelIid": "daf575a0-7820-11ed-966a-278b26993740", "dir": "<" }]
+			"__neighbours": [{ "levelIid": "daf575a0-7820-11ed-966a-278b26993740", "dir": "w" }]
 		}
 	],
 	"worlds": [],

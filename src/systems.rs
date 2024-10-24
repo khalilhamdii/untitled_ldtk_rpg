@@ -3,6 +3,10 @@ pub mod collision_events;
 pub use animation::*;
 pub use collision_events::*;
 
+pub mod patrol;
+
+pub use patrol::*;
+
 use crate::*;
 
 // Systems - in this module, I keep systems that run on every tick.

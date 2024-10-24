@@ -1,4 +1,5 @@
 pub mod buildings;
+pub mod colliders;
 pub mod door;
 pub mod mobs;
 pub mod player;
